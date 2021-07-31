@@ -26,13 +26,13 @@ This shareable configuration use the following plugins:
 - [`@semantic-release/github`](https://github.com/semantic-release/github)
 - [`@eclass/semantic-release-docker`](https://github.com/eclass/semantic-release-docker)
 
-## Install
+## 📦 Install
 
 ```bash
 $ npm install --save-dev @open-sauced/semantic-release-conventional-config
 ```
 
-## Usage
+## 🚀 Usage
 
 The shareable config can be configured in the [**semantic-release** configuration file](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#configuration):
 
@@ -42,11 +42,23 @@ The shareable config can be configured in the [**semantic-release** configuratio
 }
 ```
 
-## Configuration
+## 🔧 Configuration
 
 See each [plugin](#plugins) documentation for required installation and configuration steps.
 
 Set `DISABLE_DOCKER` to any value if you want to disable the docker docker plugin. 
+
+## 🤝 Contributing
+
+We encourage you to contribute to Open Sauced! Please check out the [Contributing guide](https://docs.opensauced.pizza/) for guidelines about how to proceed.
+
+If you decide to fix a bug, make sure to use the conventional commit available at:
+
+```shell
+npm run push
+```
+
+<img align="right" src="https://i.ibb.co/CJfW18H/ship.gif" width="200"/>
 
 ## 🍕 Community
 
