@@ -1,3 +1,10 @@
+### [1.0.1](https://github.com/open-sauced/semantic-release-conventional-config/compare/v1.0.0...v1.0.1) (2021-07-31)
+
+
+### Bug Fixes
+
+* proper package public scope on publish config ([0bca8fa](https://github.com/open-sauced/semantic-release-conventional-config/commit/0bca8faa4b44e82517eb3d26d4e91e30f67241cf))
+
 ## 1.0.0 (2021-07-31)
 
 
