@@ -46,7 +46,11 @@ The shareable config can be configured in the [**semantic-release** configuratio
 
 See each [plugin](#plugins) documentation for required installation and configuration steps.
 
-Set `DISABLE_DOCKER` to any value if you want to disable the docker docker plugin. 
+Set `DISABLE_DOCKER` to any value if you want to disable the docker docker plugin.
+
+Set `private` to true in `package.json` if yof want to disable docker.
+
+An example leveraging `node` and `docker` build artifacts can be found in [open-sauced](https://github.com/open-sauced/open-sauced/blob/main/.github/workflows/release.yml).
 
 ## 🤝 Contributing
 
