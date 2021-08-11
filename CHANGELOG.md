@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/open-sauced/semantic-release-conventional-config/compare/v1.1.1...v1.2.0) (2021-08-11)
+
+
+### Documentation
+
+* add some workflow clarifications ([#6](https://github.com/open-sauced/semantic-release-conventional-config/issues/6)) ([8755089](https://github.com/open-sauced/semantic-release-conventional-config/commit/87550891492cb812a29d4a3e4ed63ba561a4ae06)), closes [#3](https://github.com/open-sauced/semantic-release-conventional-config/issues/3)
+
 ### [1.1.1](https://github.com/open-sauced/semantic-release-conventional-config/compare/v1.1.0...v1.1.1) (2021-08-11)
 
 
