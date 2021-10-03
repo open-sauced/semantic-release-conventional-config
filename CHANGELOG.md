@@ -1,3 +1,10 @@
+## [1.3.0](https://github.com/open-sauced/semantic-release-conventional-config/compare/v1.2.0...v1.3.0) (2021-10-03)
+
+
+### Features
+
+* add diagram for opensauced githubocto/repo-visualizer implementation ([#7](https://github.com/open-sauced/semantic-release-conventional-config/issues/7)) ([055a9f7](https://github.com/open-sauced/semantic-release-conventional-config/commit/055a9f718cc7679863d6b4d9952ee0397128da03))
+
 ## [1.2.0](https://github.com/open-sauced/semantic-release-conventional-config/compare/v1.1.1...v1.2.0) (2021-08-11)
 
 
