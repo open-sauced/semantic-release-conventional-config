@@ -47,7 +47,8 @@ const plugins = [
     "assets": [
       "CHANGELOG.md",
       "package.json",
-      "npm-shrinkwrap.json"
+      "npm-shrinkwrap.json",
+      "public/diagram.svg"
     ],
     "message": `chore(release): \${nextRelease.version}\n\n\${nextRelease.notes}`
   }],
