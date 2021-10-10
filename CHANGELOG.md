@@ -1,3 +1,10 @@
+## [1.4.0](https://github.com/open-sauced/semantic-release-conventional-config/compare/v1.3.0...v1.4.0) (2021-10-10)
+
+
+### Features
+
+* implement @open-sauced/check-engines ([#8](https://github.com/open-sauced/semantic-release-conventional-config/issues/8)) ([ea81503](https://github.com/open-sauced/semantic-release-conventional-config/commit/ea8150315e8897177a6f461f053c2c8ee53f9192))
+
 ## [1.3.0](https://github.com/open-sauced/semantic-release-conventional-config/compare/v1.2.0...v1.3.0) (2021-10-03)
 
 
