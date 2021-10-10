@@ -29,11 +29,14 @@
     "conventional-changelog-conventionalcommits": "^4.6.1"
   },
   "devDependencies": {
+    "@open-sauced/check-engines": "^1.0.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "semantic-release": "^17.4.7"
   },
   "scripts": {
+    "preinstall": "npx @open-sauced/check-engines",
+    "prestart": "npx @open-sauced/check-engines",
     "push": "cz",
     "semantic-release": "semantic-release"
   },
