@@ -29,7 +29,7 @@ This shareable configuration use the following plugins:
 ## 📦 Install
 
 ```bash
-$ npm install --save-dev semantic-release @open-sauced/semantic-release-conventional-config
+npm install --save-dev @open-sauced/semantic-release-conventional-config
 ```
 
 ## 🚀 Usage
