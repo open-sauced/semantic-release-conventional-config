@@ -24,7 +24,7 @@ This shareable configuration use the following plugins:
 - [`@semantic-release/npm`](https://github.com/semantic-release/npm)
 - [`@semantic-release/git`](https://github.com/semantic-release/git)
 - [`@semantic-release/github`](https://github.com/semantic-release/github)
-- [`@eclass/semantic-release-docker`](https://github.com/eclass/semantic-release-docker)
+- [`@semantic-release-plus/docker`](https://github.com/semantic-release-plus/semantic-release-plus/tree/master/packages/plugins/docker)
 
 ## 📦 Install
 
