@@ -1,3 +1,14 @@
+## [2.0.0](https://github.com/open-sauced/semantic-release-conventional-config/compare/v1.4.0...v2.0.0) (2021-10-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* node-version: the minimum required version of node is now v14.17
+
+### Features
+
+* update to node@14 ([#9](https://github.com/open-sauced/semantic-release-conventional-config/issues/9)) ([b4a6015](https://github.com/open-sauced/semantic-release-conventional-config/commit/b4a6015c929d271e34411f560f745b6474cc351a))
+
 ## [1.4.0](https://github.com/open-sauced/semantic-release-conventional-config/compare/v1.3.0...v1.4.0) (2021-10-10)
 
 
