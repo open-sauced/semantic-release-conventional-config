@@ -1,3 +1,10 @@
+### [2.0.1](https://github.com/open-sauced/semantic-release-conventional-config/compare/v2.0.0...v2.0.1) (2021-10-25)
+
+
+### Bug Fixes
+
+* correct ci docker login variables ([#10](https://github.com/open-sauced/semantic-release-conventional-config/issues/10)) ([f1dfac0](https://github.com/open-sauced/semantic-release-conventional-config/commit/f1dfac0a1853e5e18703d7e95f0b257017a339ff))
+
 ## [2.0.0](https://github.com/open-sauced/semantic-release-conventional-config/compare/v1.4.0...v2.0.0) (2021-10-25)
 
 
