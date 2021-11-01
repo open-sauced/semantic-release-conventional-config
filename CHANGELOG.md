@@ -1,3 +1,10 @@
+### [2.0.3](https://github.com/open-sauced/semantic-release-conventional-config/compare/v2.0.2...v2.0.3) (2021-11-01)
+
+
+### Bug Fixes
+
+* correct uppercase usernames and repos, fix typo in npm package release ([#15](https://github.com/open-sauced/semantic-release-conventional-config/issues/15)) ([9c7d3aa](https://github.com/open-sauced/semantic-release-conventional-config/commit/9c7d3aafcbaa3495254e478ff1f7de367024fef0)), closes [#12](https://github.com/open-sauced/semantic-release-conventional-config/issues/12)
+
 ### [2.0.2](https://github.com/open-sauced/semantic-release-conventional-config/compare/v2.0.1...v2.0.2) (2021-11-01)
 
 
