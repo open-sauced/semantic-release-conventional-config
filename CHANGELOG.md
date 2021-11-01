@@ -1,3 +1,10 @@
+### [2.0.2](https://github.com/open-sauced/semantic-release-conventional-config/compare/v2.0.1...v2.0.2) (2021-11-01)
+
+
+### Bug Fixes
+
+* add package lock to semantic release git configuration ([#14](https://github.com/open-sauced/semantic-release-conventional-config/issues/14)) ([90c9e8c](https://github.com/open-sauced/semantic-release-conventional-config/commit/90c9e8cfe1f619aadd53cd2d86001a816a4d9e52)), closes [#13](https://github.com/open-sauced/semantic-release-conventional-config/issues/13)
+
 ### [2.0.1](https://github.com/open-sauced/semantic-release-conventional-config/compare/v2.0.0...v2.0.1) (2021-10-25)
 
 
