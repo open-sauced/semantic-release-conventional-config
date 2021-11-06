@@ -1,3 +1,10 @@
+### [2.0.4](https://github.com/open-sauced/semantic-release-conventional-config/compare/v2.0.3...v2.0.4) (2021-11-06)
+
+
+### Continuous Integration
+
+* improve workflow reusability across repositories ([#17](https://github.com/open-sauced/semantic-release-conventional-config/issues/17)) ([509fb0c](https://github.com/open-sauced/semantic-release-conventional-config/commit/509fb0c85404827db45c5d4a81fa43c0f524495f))
+
 ### [2.0.3](https://github.com/open-sauced/semantic-release-conventional-config/compare/v2.0.2...v2.0.3) (2021-11-01)
 
 
