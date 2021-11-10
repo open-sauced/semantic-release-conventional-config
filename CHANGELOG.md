@@ -1,3 +1,10 @@
+## [2.1.0](https://github.com/open-sauced/semantic-release-conventional-config/compare/v2.0.4...v2.1.0) (2021-11-10)
+
+
+### Features
+
+* implement @open-sauced/conventional commit ([#20](https://github.com/open-sauced/semantic-release-conventional-config/issues/20)) ([0ce2853](https://github.com/open-sauced/semantic-release-conventional-config/commit/0ce28530b2d7d2d364aded6745bd1ac632391fcb)), closes [#19](https://github.com/open-sauced/semantic-release-conventional-config/issues/19)
+
 ### [2.0.4](https://github.com/open-sauced/semantic-release-conventional-config/compare/v2.0.3...v2.0.4) (2021-11-06)
 
 
