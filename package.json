@@ -21,20 +21,19 @@
   },
   "dependencies": {
     "@semantic-release-plus/docker": "^3.0.1",
-    "@semantic-release/changelog": "^6.0.0",
-    "@semantic-release/git": "^10.0.0",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
     "conventional-changelog-conventionalcommits": "^4.6.1"
   },
   "devDependencies": {
-    "@open-sauced/check-engines": "^1.0.0",
-    "commitizen": "^4.2.4",
-    "cz-conventional-changelog": "^3.3.0",
+    "@open-sauced/check-engines": "^1.1.1",
+    "@open-sauced/conventional-commit": "^1.0.1",
     "semantic-release": "^18.0.0"
   },
   "scripts": {
     "preinstall": "npx @open-sauced/check-engines",
     "prestart": "npx @open-sauced/check-engines",
-    "push": "npx cz",
+    "push": "npx @open-sauced/conventional-commit",
     "semantic-release": "npx semantic-release"
   },
   "publishConfig": {
