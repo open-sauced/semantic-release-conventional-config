@@ -51,9 +51,10 @@ const plugins = [
       "npm-shrinkwrap.json",
       "public/diagram.svg"
     ],
-    "message": `chore(release): \${nextRelease.version}\n\n\${nextRelease.notes}`
+    "message": `chore(release): \${nextRelease.version} [skip ci]\n\n\${nextRelease.notes}`
   }],
   ["@semantic-release/github", {
+    "addReleases": 'bottom',
     "assets": [
       {
         "path": "pack/*.tgz",
@@ -68,6 +69,13 @@ const plugins = [
   {
     "name": String(process.env.GITHUB_REPOSITORY).toLowerCase(),
     "registry": "ghcr.io",
+  }
+]);
+
+plugins.push([
+  "@semantic-release/exec",
+  {
+    "successCmd": "echo 'SEMVER_VERSION=${nextRelease.version}' >> $GITHUB_ENV"
   }
 ]);
 
