@@ -28,15 +28,46 @@ This shareable configuration use the following plugins:
 - [`@semantic-release/github`](https://github.com/semantic-release/github)
 - [`@semantic-release-plus/docker`](https://github.com/semantic-release-plus/semantic-release-plus/tree/master/packages/plugins/docker)
 
-## 📦 Install
+## 🍕 GitHub actions usage 
+
+Since version 3 it is possible to use semantic-release without any trace of it or the open-sauced configuration anywhere in the dependency tree.
+
+The simplest use case for a typical React application:
+
+```yaml
+name: "Release"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "☁️ checkout repository"
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: "🚀 release"
+        id: semantic-release
+        uses: docker://ghcr.io/open-sauced/semantic-release-conventional-config:3.0.0
+        env:
+          DISABLE_DOCKER: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_AUTHOR_NAME: ${{ github.event.commits[0].author.username }}
+          GIT_AUTHOR_EMAIL: ${{ github.event.commits[0].author.email }}
+```
+
+## 📦 NPM install and usage
 
 ```bash
 npm install --save-dev @open-sauced/semantic-release-conventional-config
 ```
 
-## 🚀 Usage
-
-The shareable config can be configured in the [**semantic-release** configuration file](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#configuration):
+The shareable config can then be configured in the [**semantic-release** configuration file](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#configuration):
 
 ```json
 {
