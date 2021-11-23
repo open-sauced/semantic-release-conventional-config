@@ -1,5 +1,7 @@
-const plugins = [
-  ["@semantic-release/commit-analyzer", {
+const plugins = [];
+
+plugins.push([
+  "@semantic-release/commit-analyzer", {
     "preset": "conventionalcommits",
     "releaseRules": [
       {type: "build", release: "minor"},
@@ -14,8 +16,11 @@ const plugins = [
     "parserOpts": {
       "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES", "BREAKING"]
     }
-  }],
-  ["@semantic-release/release-notes-generator", {
+  }
+]);
+
+plugins.push([
+  "@semantic-release/release-notes-generator", {
     "preset": "conventionalcommits",
     "parserOpts": {
       "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES", "BREAKING"]
@@ -38,12 +43,37 @@ const plugins = [
         {type: 'ci', section: 'Continuous Integration'}
       ]
     }
-  }],
-  "@semantic-release/changelog",
-  ["@semantic-release/npm", {
+  }
+]);
+
+plugins.push("@semantic-release/changelog");
+
+plugins.push([
+  "@semantic-release/npm", {
     "tarballDir": "pack"
-  }],
-  ["@semantic-release/git", {
+  }
+]);
+
+if (!process.env.DISABLE_DOCKER) {
+  const [owner, repo] = String(process.env.GITHUB_REPOSITORY).toLowerCase().split('/');
+
+  plugins.push([
+    "@semantic-release-plus/docker",
+    {
+      "name": {
+        "registry": `ghcr.io`,
+        "namespace": owner,
+        "repository": repo,
+        "tag": "latest"
+      },
+      "registry": "ghcr.io",
+      "publishChannelTag": true,
+    }
+  ])
+}
+
+plugins.push([
+  "@semantic-release/git", {
     "assets": [
       "CHANGELOG.md",
       "package.json",
@@ -52,8 +82,11 @@ const plugins = [
       "public/diagram.svg"
     ],
     "message": `chore(release): \${nextRelease.version} [skip ci]\n\n\${nextRelease.notes}`
-  }],
-  ["@semantic-release/github", {
+  }
+]);
+
+plugins.push([
+  "@semantic-release/github", {
     "addReleases": 'bottom',
     "assets": [
       {
@@ -61,20 +94,11 @@ const plugins = [
         "label": "Static distribution"
       }
     ]
-  }],
-];
-
-!process.env.DISABLE_DOCKER && plugins.push([
-  "@semantic-release-plus/docker",
-  {
-    "name": String(process.env.GITHUB_REPOSITORY).toLowerCase(),
-    "registry": "ghcr.io",
   }
 ]);
 
 plugins.push([
-  "@semantic-release/exec",
-  {
+  "@semantic-release/exec", {
     "successCmd": "echo 'SEMVER_VERSION=${nextRelease.version}' >> $GITHUB_ENV"
   }
 ]);
