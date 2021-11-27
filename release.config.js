@@ -1,4 +1,38 @@
+const { existsSync } = require('fs');
+const execa = require('execa');
+
 const plugins = [];
+const {
+  GITHUB_SHA,
+  GITHUB_REPOSITORY_OWNER,
+  GITHUB_REPOSITORY,
+  GITHUB_TOKEN,
+  DOCKER_USERNAME,
+  DOCKER_PASSWORD,
+  GIT_COMMITTER_NAME,
+  GIT_COMMITTER_EMAIL,
+  GIT_AUTHOR_NAME,
+  GIT_AUTHOR_EMAIL,
+} = process.env;
+const successCmd = `
+echo 'RELEASE_TAG=v\${nextRelease.version}' >> $GITHUB_ENV
+echo 'RELEASE_VERSION=\${nextRelease.version}' >> $GITHUB_ENV
+echo '::set-output name=release-tag::v\${nextRelease.version}'
+echo '::set-output name=release-version::\${nextRelease.version}'
+`;
+const [owner, repo] = String(GITHUB_REPOSITORY).toLowerCase().split('/');
+
+!GIT_COMMITTER_NAME && (process.env.GIT_COMMITTER_NAME = "open-sauced[bot]");
+!GIT_COMMITTER_EMAIL && (process.env.GIT_COMMITTER_EMAIL = "63161813+open-sauced[bot]@users.noreply.github.com");
+
+try {
+  const { stdout: authorName } = execa.sync('git', ['log', '-1', '--pretty=format:%an', GITHUB_SHA]);
+  const { stdout: authorEmail } = execa.sync('git', ['log', '-1', '--pretty=format:%ae', GITHUB_SHA]);
+  authorName && !GIT_AUTHOR_NAME && (process.env.GIT_AUTHOR_NAME = `${authorName}`);
+  authorEmail && !GIT_AUTHOR_EMAIL && (process.env.GIT_AUTHOR_EMAIL = `${authorEmail}`);
+} catch (error) {
+  console.log(error);
+}
 
 plugins.push([
   "@semantic-release/commit-analyzer", {
@@ -54,22 +88,31 @@ plugins.push([
   }
 ]);
 
-if (!process.env.DISABLE_DOCKER) {
-  const [owner, repo] = String(process.env.GITHUB_REPOSITORY).toLowerCase().split('/');
+try {
+  const actionExists = existsSync('./action.yml');
 
-  plugins.push([
-    "semantic-release-docker-mini",
-    {
-      "name": {
-        "registry": `ghcr.io`,
-        "namespace": owner,
-        "repository": repo,
-        "tag": "latest"
-      },
-      "registry": "ghcr.io",
-      "publishChannelTag": true,
-    }
-  ])
+  if (actionExists) {
+    plugins.push([
+      "@google/semantic-release-replace-plugin", {
+        "replacements": [{
+          "files": [
+            "action.yml"
+          ],
+          "from": `image: 'docker://ghcr.io/${owner}/${repo}:.*'`,
+          "to": `image: 'docker://ghcr.io/${owner}/${repo}:\${nextRelease.version}'`,
+          "results": [{
+            "file": "action.yml",
+            "hasChanged": true,
+            "numMatches": 1,
+            "numReplacements": 1
+          }],
+          "countMatches": true
+        }]
+      }
+    ]);
+  }
+} catch(err) {
+  console.error("Fatal lstat on action.yml: ", err);
 }
 
 plugins.push([
@@ -79,7 +122,8 @@ plugins.push([
       "package.json",
       "package-lock.json",
       "npm-shrinkwrap.json",
-      "public/diagram.svg"
+      "public/diagram.svg",
+      "action.yml"
     ],
     "message": `chore(release): \${nextRelease.version} [skip ci]\n\n\${nextRelease.notes}`
   }
@@ -97,11 +141,38 @@ plugins.push([
   }
 ]);
 
-plugins.push([
-  "@semantic-release/exec", {
-    "successCmd": "echo 'SEMVER_VERSION=${nextRelease.version}' >> $GITHUB_ENV"
+try {
+  const dockerExists = existsSync('./Dockerfile');
+
+  if (dockerExists) {
+    !DOCKER_USERNAME && (process.env.DOCKER_USERNAME = GITHUB_REPOSITORY_OWNER);
+    !DOCKER_PASSWORD && (process.env.DOCKER_PASSWORD = GITHUB_TOKEN);
+
+    plugins.push([
+      "semantic-release-docker-mini",
+      {
+        "name": {
+          "registry": `ghcr.io`,
+          "namespace": owner,
+          "repository": repo,
+          "tag": "latest"
+        },
+        "registry": "ghcr.io",
+        "publishChannelTag": true,
+      }
+    ]);
   }
-]);
+} catch(err) {
+  console.error("Fatal lstat on Dockerfile: ", err);
+}
+
+if (process.env.GITHUB_ACTIONS === "true") {
+  plugins.push([
+    "@semantic-release/exec", {
+      successCmd
+    }
+  ]);
+}
 
 module.exports = {
   "branches": [
