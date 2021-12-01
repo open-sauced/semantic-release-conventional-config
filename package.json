@@ -17,20 +17,20 @@
     "url": "git+ssh://git@github.com/open-sauced/semantic-release-conventional-config.git"
   },
   "peerDependencies": {
-    "semantic-release": "^18.0.1"
+    "semantic-release": ">=18.0.0-beta.1"
   },
   "dependencies": {
-    "execa": "^5.1.1",
-    "@semantic-release/commit-analyzer": "^9.0.2",
-    "@semantic-release/release-notes-generator": "^10.0.3",
-    "conventional-changelog-conventionalcommits": "^4.6.1",
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/npm": "^8.0.3",
     "@google/semantic-release-replace-plugin": "^1.1.0",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/exec": "^6.0.2",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^8.0.2",
-    "semantic-release-docker-mini": "^1.2.3",
-    "@semantic-release/exec": "^6.0.2",
+    "@semantic-release/npm": "^8.0.3",
+    "@semantic-release/release-notes-generator": "^10.0.3",
+    "conventional-changelog-conventionalcommits": "^4.6.1",
+    "eclass-docker-fork": "^1.2.1",
+    "execa": "^5.1.1",
     "semantic-release": "^18.0.1"
   },
   "devDependencies": {

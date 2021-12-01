@@ -4,11 +4,7 @@ const execa = require('execa');
 const plugins = [];
 const {
   GITHUB_SHA,
-  GITHUB_REPOSITORY_OWNER,
   GITHUB_REPOSITORY,
-  GITHUB_TOKEN,
-  DOCKER_USERNAME,
-  DOCKER_PASSWORD,
   GIT_COMMITTER_NAME,
   GIT_COMMITTER_EMAIL,
   GIT_AUTHOR_NAME,
@@ -145,20 +141,18 @@ try {
   const dockerExists = existsSync('./Dockerfile');
 
   if (dockerExists) {
-    !DOCKER_USERNAME && (process.env.DOCKER_USERNAME = GITHUB_REPOSITORY_OWNER);
-    !DOCKER_PASSWORD && (process.env.DOCKER_PASSWORD = GITHUB_TOKEN);
-
     plugins.push([
-      "semantic-release-docker-mini",
+      "eclass-docker-fork",
       {
-        "name": {
-          "registry": `ghcr.io`,
-          "namespace": owner,
-          "repository": repo,
-          "tag": "latest"
-        },
-        "registry": "ghcr.io",
-        "publishChannelTag": true,
+        "baseImageName": `${owner}/${repo}`,
+        "registries": [
+          {
+            "url": "ghcr.io",
+            "imageName": `ghcr.io/${owner}/${repo}`,
+            "user": "GITHUB_REPOSITORY_OWNER",
+            "password": "GITHUB_TOKEN"
+          }
+        ]
       }
     ]);
   }
@@ -187,4 +181,4 @@ module.exports = {
     }
   ],
   plugins,
-}
+};
