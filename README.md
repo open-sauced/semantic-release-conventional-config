@@ -24,17 +24,19 @@ This shareable configuration use the following plugins:
 - [`@semantic-release/changelog`](https://github.com/semantic-release/changelog)
 - [`@semantic-release/npm`](https://github.com/semantic-release/npm)
 - [`@google/semantic-release-replace-plugin`](https://github.com/google/semantic-release-replace-plugin)
+- [`semantic-release-license`](https://github.com/cbhq/semantic-release-license)
 - [`@semantic-release/git`](https://github.com/semantic-release/git)
 - [`@semantic-release/github`](https://github.com/semantic-release/github)
-- [`semantic-release-docker-mini`](https://github.com/0-vortex/semantic-release-docker-mini)
+- [`@eclass/semantic-release-docker`](https://github.com/eclass/semantic-release-docker)
 - [`@semantic-release/exec`](https://github.com/semantic-release/exec)
+- [`execa`](https://github.com/sindresorhus/execa)
 
 ## 🖥️ Requirements
 
 Most important limitations are:
 - `GITHUB_TOKEN` for everything
 - `NPM_TOKEN` for public `npm` library
-- `docker` containers need to be build beforehand
+- `docker` containers need to be built beforehand
 
 You can skip here if you are using elevated [Private Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token), however we don't recommend going down that path.
 
@@ -42,6 +44,9 @@ No force push or admin cherries branch protections for the following branches:
 - `main` - required
 - `alpha` - optional, pre-release branch
 - `beta` - optional, pre-release branch
+- `next` - optional, next channel
+- `next-major` - optional, next major
+- `vX[.X.X]` - maintenance releases
 
 If you use more than the main branch, optionally create an environment that is limiting where pushes can come from and enable the merge strategy.
 
@@ -50,6 +55,8 @@ We are using `production` in our examples, if you copy paste them you will find 
 ## 🧪 GitHub actions usage 
 
 Since version 3 it is possible to use semantic-release without any trace of it or the open-sauced configuration anywhere in the dependency tree.
+
+Docker containers are pushed as part of the release so they mirror the availability of `npm` packages.
 
 The simplest use case for a typical NPM package, almost zero install downtime from ghcr and no more local tooling:
 
@@ -86,6 +93,8 @@ jobs:
           echo ${{ env.RELEASE_VERSION }}
 ```
 
+Marketplace actions should default to the major tag and are essentially more stable as we have to curate every release.
+
 A more traditional approach, only thing really different here is a minor pull overhead and using set outputs instead of environment variables:
 
 ```yaml
@@ -111,7 +120,7 @@ jobs:
 
       - name: "🚀 release"
         id: semantic-release
-        uses: open-sauced/semantic-release-conventional-config@v3.0.0
+        uses: open-sauced/semantic-release-conventional-config@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -120,7 +129,6 @@ jobs:
         run: |
           echo ${{ steps.semantic-release.outputs.release-tag }}
           echo ${{ steps.semantic-release.outputs.release-version }}
-
 ```
 
 ## 📦 NPM usage
