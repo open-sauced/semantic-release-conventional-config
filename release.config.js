@@ -125,10 +125,10 @@ plugins.push(["semantic-release-license"]);
 plugins.push([
   "@semantic-release/git", {
     "assets": [
-      "LICENSE",
-      "LICENSE.md",
-      "COPYING",
-      "COPYING.md",
+      'LICENSE',
+      'LICENSE.md',
+      'COPYING',
+      'COPYING.md',
       "CHANGELOG.md",
       "package.json",
       "package-lock.json",
@@ -185,10 +185,15 @@ if (process.env.GITHUB_ACTIONS === "true") {
 
 module.exports = {
   "branches": [
+    // maintenance releases
     "+([0-9])?(.{+([0-9]),x}).x",
+
+    // release channels
     "main",
     "next",
     "next-major",
+
+    // pre-releases
     {
       name: 'beta',
       prerelease: true
@@ -199,4 +204,4 @@ module.exports = {
     }
   ],
   plugins,
-};
+}
