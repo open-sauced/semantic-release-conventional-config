@@ -1,3 +1,23 @@
+# 📦 open-sauced/semantic-release-conventional-config changelog
+
+[![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
+
+> All notable changes to this project will be documented in this file
+
+## [3.0.0](https://github.com/open-sauced/semantic-release-conventional-config/compare/v2.1.0...v3.0.0) (2021-12-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* it is no longer required to install this package as part of your NPM tooling as
+long as you are using GitHub Actions
+* marketplace integration works now but it needs a manual verification for every tag we want to list, the major tag updates being handled by another action when we edit the GitHub release
+
+### Features
+
+* dockerize repository and release package on ghcr.io ([#21](https://github.com/open-sauced/semantic-release-conventional-config/issues/21)) ([847456e](https://github.com/open-sauced/semantic-release-conventional-config/commit/847456ec3c7bc7cb46ad8acbcb311934f60a5445)), closes [#18](https://github.com/open-sauced/semantic-release-conventional-config/issues/18) [#11](https://github.com/open-sauced/semantic-release-conventional-config/issues/11) [#24](https://github.com/open-sauced/semantic-release-conventional-config/issues/24) [#24](https://github.com/open-sauced/semantic-release-conventional-config/issues/24)
+
 # 📦 open-sauced/semantic-release-conventional-config
 
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)

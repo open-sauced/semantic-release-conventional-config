@@ -1,6 +1,6 @@
 {
   "name": "@open-sauced/semantic-release-conventional-config",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "license": "MIT",
   "files": [
     "release.config.js"
