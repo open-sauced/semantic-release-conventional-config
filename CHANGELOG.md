@@ -1,3 +1,10 @@
+# 📦 open-sauced/semantic-release-conventional-config
+
+[![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
+
+> All notable changes to this project will be documented in this file`
+
 ## [2.1.0](https://github.com/open-sauced/semantic-release-conventional-config/compare/v2.0.4...v2.1.0) (2021-11-10)
 
 
