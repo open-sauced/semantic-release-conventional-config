@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [3.0.1](https://github.com/open-sauced/semantic-release-conventional-config/compare/v3.0.0...v3.0.1) (2021-12-05)
+
+
+### 🐛 Bug Fixes
+
+* correct license plugin and refactor all tooling ([#26](https://github.com/open-sauced/semantic-release-conventional-config/issues/26)) ([dc9a109](https://github.com/open-sauced/semantic-release-conventional-config/commit/dc9a1092d86e25824dd02c5fcfd87d778c1caef0)), closes [#25](https://github.com/open-sauced/semantic-release-conventional-config/issues/25)
+
 ## [3.0.0](https://github.com/open-sauced/semantic-release-conventional-config/compare/v2.1.0...v3.0.0) (2021-12-04)
 
 
