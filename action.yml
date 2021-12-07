@@ -11,5 +11,5 @@ branding:
   color: 'yellow'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/open-sauced/semantic-release-conventional-config:3.0.1'
+  image: 'docker://ghcr.io/open-sauced/semantic-release-conventional-config:3.1.0'
 

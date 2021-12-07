@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [3.1.0](https://github.com/open-sauced/semantic-release-conventional-config/compare/v3.0.1...v3.1.0) (2021-12-07)
+
+
+### 📝 Documentation
+
+* update readme with latest action enhancements and fix previous changelog header artifacts ([#27](https://github.com/open-sauced/semantic-release-conventional-config/issues/27)) ([5c52b76](https://github.com/open-sauced/semantic-release-conventional-config/commit/5c52b765a4e6c2869904f4851247d950f5119466))
+
 ### [3.0.1](https://github.com/open-sauced/semantic-release-conventional-config/compare/v3.0.0...v3.0.1) (2021-12-05)
 
 
