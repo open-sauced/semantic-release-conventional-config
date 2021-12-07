@@ -4,7 +4,8 @@
 # @open-sauced/semantic-release-conventional-config
 
 > [**semantic-release**](https://github.com/semantic-release/semantic-release) shareable config to publish to `npm` and/or `ghcr`.
-> now with alpha and beta pre-releases 
+
+> now available as a [GitHub Marketplace action](https://github.com/marketplace/actions/open-sauced-semantic-release-conventional-config) 
 
 [![Commits](https://img.shields.io/github/commit-activity/w/open-sauced/semantic-release-conventional-config?style=flat)](https://github.com/open-sauced/semantic-release-conventional-config/pulse)
 [![Issues](https://img.shields.io/github/issues/open-sauced/semantic-release-conventional-config.svg?style=flat)](https://github.com/open-sauced/semantic-release-conventional-config/issues)
@@ -43,10 +44,10 @@ You can skip here if you are using elevated [Private Access Token](https://docs.
 
 No force push or admin cherries branch protections for the following branches:
 - `main` - required
-- `alpha` - optional, pre-release branch
-- `beta` - optional, pre-release branch
 - `next` - optional, next channel
 - `next-major` - optional, next major
+- `alpha` - optional, pre-release branch
+- `beta` - optional, pre-release branch
 - `vX[.X.X]` - maintenance releases
 
 If you use more than the main branch, optionally create an environment that is limiting where pushes can come from and enable the merge strategy.
@@ -68,6 +69,10 @@ on:
   push:
     branches:
       - main
+      - next
+      - next-major
+      - alpha
+      - beta
 
 jobs:
   release:
@@ -105,6 +110,10 @@ on:
   push:
     branches:
       - main
+      - next
+      - next-major
+      - alpha
+      - beta
 
 jobs:
   release:

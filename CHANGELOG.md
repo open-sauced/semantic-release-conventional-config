@@ -25,13 +25,6 @@ long as you are using GitHub Actions
 
 * dockerize repository and release package on ghcr.io ([#21](https://github.com/open-sauced/semantic-release-conventional-config/issues/21)) ([847456e](https://github.com/open-sauced/semantic-release-conventional-config/commit/847456ec3c7bc7cb46ad8acbcb311934f60a5445)), closes [#18](https://github.com/open-sauced/semantic-release-conventional-config/issues/18) [#11](https://github.com/open-sauced/semantic-release-conventional-config/issues/11) [#24](https://github.com/open-sauced/semantic-release-conventional-config/issues/24) [#24](https://github.com/open-sauced/semantic-release-conventional-config/issues/24)
 
-# 📦 open-sauced/semantic-release-conventional-config
-
-[![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
-[![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
-
-> All notable changes to this project will be documented in this file`
-
 ## [2.1.0](https://github.com/open-sauced/semantic-release-conventional-config/compare/v2.0.4...v2.1.0) (2021-11-10)
 
 
