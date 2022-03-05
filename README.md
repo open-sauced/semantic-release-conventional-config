@@ -1,3 +1,4 @@
+_This project has been archived in favor of [open-sauced/release](https://github.com/open-sauced/release)_
 <div style="text-align: center" align="center">
   <img alt="Open Sauced" src="https://i.ibb.co/7jPXt0Z/logo1-92f1a87f.png" width="300px" />
 
